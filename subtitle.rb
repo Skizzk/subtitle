@@ -70,10 +70,10 @@ class Synchronizer
         end
      end
     balise= "#{a[0]}:#{a[1]}:#{a[2].round(3)}"    # /!\ produit quelque chose comme 1:2:3,456 et non 01:02:03,456
-    balise["."]=","
+    balise["."]=","                                           # Mais c'est pas genant \O/
     balise  
   end
-  
+
   def synchronize
     f=File.open(@fichier)
     nf=File.open(@nouveauFichier, "a")
