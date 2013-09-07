@@ -49,7 +49,7 @@ class Synchronizer
       time[1]+=1*nombre_fois
       time[2]-=60*nombre_fois
       else
-        nombre_fois = time[2]
+        nombre_fois = (time[2]/60).round
         time[1]-=1*nombre_fois
         time[2]+=60*nombre_fois
     end
