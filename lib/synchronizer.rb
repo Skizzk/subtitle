@@ -2,7 +2,7 @@
 
 
 class Synchronizer
-  
+
   attr_reader :fichier, :nouveau_fichier, :decalage
 
   def initialize(fichier, decalage)
@@ -25,7 +25,7 @@ class Synchronizer
       else
         new_line = line
       end
-     # puts "#{line} ==> #{new_line}"
+      # puts "#{line} ==> #{new_line}"
       nouveau_fichier.write(new_line)
     end
   end
@@ -36,7 +36,7 @@ class Synchronizer
     cuted_line[1]=decal(cuted_line[1])   # decalage de la deuxieme balise temporelle
     new_line="#{cuted_line[0]} --> #{cuted_line[1]}\n"
   end
-  
+
   def decal(balise)
     balise[","]="."
     time = balise.split(":")
@@ -44,20 +44,14 @@ class Synchronizer
     time[1] = time[1].to_i
     time[2] = time[2].to_f.round(3)
     time[2] += @decalage
-    if @decalage >= 0
-      nombre_fois = time[2]/60
-      time[1]+=1*nombre_fois
-      time[2]-=60*nombre_fois
-      else
-        nombre_fois = (time[2]/60).round
-        time[1]-=1*nombre_fois
-        time[2]+=60*nombre_fois
-    end
+    nombre_fois = (time[2]/60).round
+    time[1]+=1*nombre_fois
+    time[2]-=60*nombre_fois
     balise= "#{a[0]}:#{a[1]}:#{a[2].round(3)}"    # /!\ produit quelque chose comme 1:2:3,456 et non 01:02:03,456
     balise["."]=","
     balise  
   end
-  
+
   def synchronize
     f=File.open(@fichier)
     nf=File.open(@nouveau_fichier, "a")
