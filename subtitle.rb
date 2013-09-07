@@ -64,7 +64,7 @@ class Synchronizer
         a[2]-=60
       end
       else
-        while a[2]<= -1
+        while a[2] < 0
           a[1]-=1
           a[2]+=60
         end
