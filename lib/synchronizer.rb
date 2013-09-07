@@ -47,7 +47,7 @@ class Synchronizer
     nombre_fois = (time[2]/60).round
     time[1]+=1*nombre_fois
     time[2]-=60*nombre_fois
-    balise= "#{a[0]}:#{a[1]}:#{a[2].round(3)}"    # /!\ produit quelque chose comme 1:2:3,456 et non 01:02:03,456
+    balise= "#{time[0]}:#{time[1]}:#{time[2].round(3)}"    # /!\ produit quelque chose comme 1:2:3,456 et non 01:02:03,456
     balise["."]=","
     balise  
   end
