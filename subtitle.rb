@@ -58,8 +58,7 @@ class Synchronizer
     a[2] = a[2].to_f.round(3)
     a[2] += @decalage
     if @decalage >= 0
-      then
-        while a[2]>= 60
+      while a[2]>= 60
         a[1]+=1
         a[2]-=60
       end
