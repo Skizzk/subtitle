@@ -1,4 +1,5 @@
-SUBTITLE
+Subtitle
+========
 
 Un projet ruby home made pour resynchroniser les sous titres des fichiers .srt
 
